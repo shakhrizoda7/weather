@@ -24,20 +24,31 @@ const WeatherStyled = styled.div`
   .App{
     .form{
       width: 400px;
-      height: 100px;
+      height: 110px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      flex-direction: column;
       margin-top: 80px;
-      gap: 10px;
+      gap: 2px;
       background-color: #fff;
       border-radius: 8px;
-
+      padding: 25px;
       @media (max-width: 420px){
         width: 250px;
         height: 80px;
         padding: 0 20px;
       }
+
+      p{
+        margin: 0;
+      }
+      
+      div{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
 
       input{
         width: 300px;
@@ -129,12 +140,15 @@ function App() {
       <div className="App">
 
         <div className="form">
-          <input type="text" placeholder="Enter city name" value={city} onChange={(e) => setCity(e.target.value)}/>
-          <button className="btn" onClick={getWeather}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-            </svg>
-          </button>
+          <h6>City name:</h6>
+          <div>
+            <input type="text" placeholder="Enter city name" value={city} onChange={(e) => setCity(e.target.value)}/>
+            <button className="btn" onClick={getWeather}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
         {weather && (
