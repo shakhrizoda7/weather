@@ -33,14 +33,15 @@ const WeatherStyled = styled.div`
       background-color: #fff;
       border-radius: 8px;
       padding: 25px;
-      @media (max-width: 420px){
-        width: 250px;
-        height: 80px;
-        padding: 0 20px;
-      }
 
-      p{
-        margin: 0;
+      @media (max-width: 420px){
+        width: 260px;
+        height: 90px;
+        padding: 0 10px;
+
+        h6{
+          font-size: 15px;
+        }
       }
       
       div{
