@@ -10,6 +10,10 @@ const MovieStyled = styled.div`
     flex-direction: column;
 
     .movie{
+        @media (max-width: 350px){
+            width: 200px;
+        }
+
         .form{
             width: 400px;
             height: 110px;
@@ -26,12 +30,13 @@ const MovieStyled = styled.div`
                 width: 260px;
                 height: 90px;
                 padding: 0 10px;
+                margin-left: -30px;
 
                 h6{
-                font-size: 15px;
+                    font-size: 15px;
                 }
             }
-            
+
             div{
                 display: flex;
                 align-items: center;
@@ -63,6 +68,10 @@ const MovieStyled = styled.div`
             text-align: center;
             margin-top: 50px;
 
+            @media (max-width: 350px){
+                width: 200px;
+            }
+
             .ratingIcon{
                 font-size: 12px;
                 margin-right: 5px;
@@ -75,8 +84,13 @@ const MovieStyled = styled.div`
 
             @media (max-width: 420px){
               .movieAbout{
-                font-size: 15px;
+                font-size: 14px;
                 width: 350px;
+              }
+            }
+            @media (max-width: 350px){
+              .movieAbout{
+                width: 200px;
               }
             }
         }
@@ -145,11 +159,11 @@ export default function Movie() {
           <div className="movie-info">
             <h2>{movie.Title}</h2>
             <p>{movie.Year}</p>
-            <p>{movie.Country}</p>
+            <p><i class="bi bi-geo-alt-fill"></i> {movie.Country}</p>
             <p>{movie.Genre}</p>
             <p><i class="bi bi-play-fill runtimeIcon"></i>{movie.Runtime}</p>
             <p className='movieAbout'>{movie.Plot}</p>
-            <p>Actors: {movie.Actors}</p>
+            <p className='movieAbout actors'>Actors: {movie.Actors}</p>
             <p><i class="bi bi-star-fill ratingIcon"></i> {movie.imdbRating}</p>
           </div>
         )}
