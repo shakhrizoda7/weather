@@ -72,6 +72,13 @@ const MovieStyled = styled.div`
                 display: flex;
                 align-items: center;
             }
+
+            @media (max-width: 420px){
+              .movieAbout{
+                font-size: 15px;
+                width: 350px;
+              }
+            }
         }
     }
 `;
@@ -80,8 +87,8 @@ export default function Movie() {
   // api
   const API_KEY_MOVIE = '38baa1c8';
   
-  const [movieName, setMovieName] = useState();
-  const [movie, setMovie] = useState();
+  const [movieName, setMovieName] = useState('');
+  const [movie, setMovie] = useState(null);
   
   
   const getMovie = async () => {
@@ -93,7 +100,7 @@ export default function Movie() {
     const movieToFetch = movieName.trim();
     
     // api url
-    const url = `http://www.omdbapi.com/?s=${movieToFetch}&apikey=${API_KEY_MOVIE}`;
+    const url = `https://www.omdbapi.com/?s=${movieToFetch}&apikey=${API_KEY_MOVIE}`;
         
     try {
         const response = await axios.get(url);
@@ -140,7 +147,7 @@ export default function Movie() {
             <p>{movie.Year}</p>
             <p>{movie.Genre}</p>
             <p><i class="bi bi-play-fill runtimeIcon"></i>{movie.Runtime}</p>
-            <p>{movie.Plot}</p>
+            <p className='movieAbout'>{movie.Plot}</p>
             <p><i class="bi bi-star-fill ratingIcon"></i> {movie.imdbRating}</p>
           </div>
         )}
