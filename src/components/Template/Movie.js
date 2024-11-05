@@ -108,7 +108,7 @@ export default function Movie() {
         // Check if the response has Search results
         if (response.data.Search && response.data.Search.length > 0) {
             const movieId = response.data.Search[0].imdbID; 
-            const detailUrl = `http://www.omdbapi.com/?i=${movieId}&apikey=${API_KEY_MOVIE}`;
+            const detailUrl = `https://www.omdbapi.com/?i=${movieId}&apikey=${API_KEY_MOVIE}`;
 
             const detailResponse = await axios.get(detailUrl);
 
@@ -145,9 +145,11 @@ export default function Movie() {
           <div className="movie-info">
             <h2>{movie.Title}</h2>
             <p>{movie.Year}</p>
+            <p>{movie.Country}</p>
             <p>{movie.Genre}</p>
             <p><i class="bi bi-play-fill runtimeIcon"></i>{movie.Runtime}</p>
             <p className='movieAbout'>{movie.Plot}</p>
+            <p>Actors: {movie.Actors}</p>
             <p><i class="bi bi-star-fill ratingIcon"></i> {movie.imdbRating}</p>
           </div>
         )}
